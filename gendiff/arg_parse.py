@@ -1,5 +1,5 @@
 import argparse
-import json
+from gendiff.diff import generate_diff
 
 def arg_parse():
     parser = argparse.ArgumentParser(
@@ -10,11 +10,9 @@ def arg_parse():
     parser.add_argument(
         "-f", "--format",
         help="set format of output",
-        default="plain"  # Формат по умолчанию
+        default="plain"  
     )
     args = parser.parse_args()
 
-    # Выводим переданные аргументы
-    print(f"Comparing {args.first_file} and {args.second_file} in {args.format} format.")
-
-    json.load(open('gendiff/file1.json'))
+    diff = generate_diff(args.first_file, args.second_file, format_name=args.format)
+    print(diff)
