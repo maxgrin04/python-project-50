@@ -9,4 +9,8 @@
 
 ### Сравнение плоских файлов JSON
 > Пример запуска:
-[![asciicast]( https://asciinema.org/a/HFSHjFuujAqm6Xm5rSHJwRVwx.svg)]( https://asciinema.org/a/HFSHjFuujAqm6Xm5rSHJwRVwx)
+[![asciicast](https://asciinema.org/a/HFSHjFuujAqm6Xm5rSHJwRVwx.svg)](https://asciinema.org/a/HFSHjFuujAqm6Xm5rSHJwRVwx)
+
+### Сравнение плоских файлов YAML
+> Пример запуска:
+[![asciicast](https://asciinema.org/a/Xj3RqEzLhyd4PUWcdVvxNueVg.svg)](https://asciinema.org/a/Xj3RqEzLhyd4PUWcdVvxNueVg)
