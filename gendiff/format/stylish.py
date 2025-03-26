@@ -60,4 +60,5 @@ def format_stylish(diff, depth=1):
             case _:
                 raise ValueError(f"Unsupported status '{status}' in diff structure")
 
-    return "{\n" + "\n".join(lines) + f"\n{'    ' * (depth - 1)}"
+    indent = '    ' * (depth - 1)
+    return "{\n" + "\n".join(lines) + f"\n{indent}}}"
