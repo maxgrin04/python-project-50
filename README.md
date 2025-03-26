@@ -14,3 +14,7 @@
 ### Сравнение плоских файлов YAML
 > Пример запуска:
 [![asciicast](https://asciinema.org/a/Xj3RqEzLhyd4PUWcdVvxNueVg.svg)](https://asciinema.org/a/Xj3RqEzLhyd4PUWcdVvxNueVg)
+
+### Рекурсивное сравнение
+> Пример запуска:
+[![asciicast](https://asciinema.org/a/9oRkTiFUB4TIR6yfVQ6bBHxbh.svg)](https://asciinema.org/a/9oRkTiFUB4TIR6yfVQ6bBHxbh)

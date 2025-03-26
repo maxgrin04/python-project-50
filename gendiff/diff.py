@@ -1,29 +1,69 @@
 from gendiff.parser import read_file
+from gendiff.format.stylish import format_stylish
+from gendiff.format.plain import format_plain
+from gendiff.format.json import format_json
 
 
-def normalize_boolean(value):
-    if isinstance(value, bool):
-        return str(value).lower()
-    return value
+def process_both_dicts(key, data1, data2):
+    if isinstance(data1[key], dict) and isinstance(data2[key], dict):
+        children = build_diff(data1[key], data2[key])
+        return {
+            'key': key,
+            'status': 'nested',
+            'children': children
+        }
+    elif data1[key] == data2[key]:
+        return {
+            'key': key,
+            'status': 'unchanged',
+            'value': data1[key]
+        }
+    else:
+        return {
+            'key': key,
+            'status': 'changed',
+            'old_value': data1[key],
+            'new_value': data2[key]
+        }
 
 
-def generate_diff(file_path1, file_path2, format_name="plain"):
+def process_only_in_first(key, data1):
+    return {
+        'key': key,
+        'status': 'removed',
+        'value': data1[key]
+    }
+
+
+def process_only_in_second(key, data2):
+    return {
+        'key': key,
+        'status': 'added',
+        'value': data2[key]
+    }
+
+
+def build_diff(data1, data2):
+    all_keys = sorted(set(data1.keys()) | set(data2.keys()))
+    diff = []
+
+    for key in all_keys:
+        if key in data1 and key in data2:
+            diff.append(process_both_dicts(key, data1, data2))
+        elif key in data1:
+            diff.append(process_only_in_first(key, data1))
+        elif key in data2:
+            diff.append(process_only_in_second(key, data2))
+
+    return diff
+
+
+def generate_diff(file_path1, file_path2, format_name='stylish'):
     data1 = read_file(file_path1)
     data2 = read_file(file_path2)
-    data1 = {key: normalize_boolean(value) for key, value in data1.items()}
-    data2 = {key: normalize_boolean(value) for key, value in data2.items()}
-    keys = sorted(set(data1.keys()) | set(data2.keys()))
-    diff_lines = []
-    for key in keys:
-        if key in data1 and key in data2:
-            if data1[key] == data2[key]:
-                diff_lines.append(f"    {key}: {data1[key]}")
-            else:
-                diff_lines.append(f"  - {key}: {data1[key]}")
-                diff_lines.append(f"  + {key}: {data2[key]}")
-        elif key in data1:
-            diff_lines.append(f"  - {key}: {data1[key]}")
-        elif key in data2:
-            diff_lines.append(f"  + {key}: {data2[key]}")
-
-    return "{\n" + "\n".join(diff_lines) + "\n}"
+    diff = build_diff(data1, data2)
+    if format_name == 'plain':
+        return format_plain(diff)
+    elif format_name == 'json':
+        return format_json(diff)
+    return format_stylish(diff)
