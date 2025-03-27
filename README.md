@@ -1,6 +1,4 @@
 ### Hexlet tests and linter status:
-[![Actions Status](https://github.com/maxgrin04/python-project-50/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/maxgrin04/python-project-50/actions)
-
 [![Python CI](https://github.com/maxgrin04/python-project-50/actions/workflows/pyci.yml/badge.svg?branch=main)](https://github.com/maxgrin04/python-project-50/actions/workflows/pyci.yml)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/e48b42d1d479d1e90b8e/maintainability)](https://codeclimate.com/github/maxgrin04/python-project-50/maintainability)
@@ -18,3 +16,7 @@
 ### Рекурсивное сравнение
 > Пример запуска:
 [![asciicast](https://asciinema.org/a/9oRkTiFUB4TIR6yfVQ6bBHxbh.svg)](https://asciinema.org/a/9oRkTiFUB4TIR6yfVQ6bBHxbh)
+
+### Плоский формат
+> Пример запуска:
+[![asciicast](https://asciinema.org/a/28YASUdIvhjrc7iGpONfqEovL.svg)](https://asciinema.org/a/28YASUdIvhjrc7iGpONfqEovL)
