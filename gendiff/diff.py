@@ -1,7 +1,7 @@
 from gendiff.parser import read_file
-from gendiff.format.stylish import format_stylish
-from gendiff.format.plain import format_plain
-from gendiff.format.json import format_json
+from gendiff.formatters.stylish import format_stylish
+from gendiff.formatters.plain import format_plain
+from gendiff.formatters.json import format_json
 
 
 def process_both_dicts(key, data1, data2):

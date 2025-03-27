@@ -8,7 +8,9 @@ import pytest
     ('tests/test_data/file3.json', 'tests/test_data/file4.json', 'tests/test_data/expected_result_2.txt', 'stylish'),
     ('tests/test_data/file3.yaml', 'tests/test_data/file4.yaml', 'tests/test_data/expected_result_2.txt', 'stylish'),
     ('tests/test_data/file3.json', 'tests/test_data/file4.json', 'tests/test_data/expected_result_3.txt', 'plain'),
-    ('tests/test_data/file3.yaml', 'tests/test_data/file4.yaml', 'tests/test_data/expected_result_3.txt', 'plain')
+    ('tests/test_data/file3.yaml', 'tests/test_data/file4.yaml', 'tests/test_data/expected_result_3.txt', 'plain'),
+    ('tests/test_data/file3.json', 'tests/test_data/file4.json', 'tests/test_data/expected_result_3.txt', 'json'),
+    ('tests/test_data/file3.yaml', 'tests/test_data/file4.yaml', 'tests/test_data/expected_result_3.txt', 'json')
 ])
 def test_generate_diff(file_path1, file_path2, expected, format_name):
     with open(expected,) as file:

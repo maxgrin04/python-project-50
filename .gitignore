@@ -1,0 +1,9 @@
+.venv
+__pycache__
+dist/
+*.pyc 
+*.egg-info
+.coverage
+coverage.xml
+*_cache/
+*cast
