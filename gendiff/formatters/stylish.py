@@ -3,7 +3,9 @@ def format_value_stylish(value, depth):
     if isinstance(value, dict):
         lines = []
         for k, v in value.items():
-            lines.append(f"{indent}    {k}: {format_value_stylish(v, depth + 1)}")
+            lines.append(
+                f"{indent}    {k}: {format_value_stylish(v, depth + 1)}"
+            )
         result = "\n".join(lines)
         return f"{{\n{result}\n{indent}}}"
     if value is None:
@@ -19,15 +21,24 @@ def format_nested(key, item, depth):
 
 
 def format_unchanged(key, item, depth):
-    return f"{'    ' * (depth - 1)}    {key}: {format_value_stylish(item['value'], depth)}"
+    return (
+        f"{'    ' * (depth - 1)}    {key}: "
+        f"{format_value_stylish(item['value'], depth)}"
+    )
 
 
 def format_added(key, item, depth):
-    return f"{'    ' * (depth - 1)}  + {key}: {format_value_stylish(item['value'], depth)}"
+    return (
+        f"{'    ' * (depth - 1)}  + {key}: "
+        f"{format_value_stylish(item['value'], depth)}"
+    )
 
 
 def format_removed(key, item, depth):
-    return f"{'    ' * (depth - 1)}  - {key}: {format_value_stylish(item['value'], depth)}"
+    return (
+        f"{'    ' * (depth - 1)}  - {key}: "
+        f"{format_value_stylish(item['value'], depth)}"
+    )
 
 
 def format_changed(key, item, depth):
