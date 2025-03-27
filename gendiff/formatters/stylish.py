@@ -69,7 +69,9 @@ def format_stylish(diff, depth=1):
             case "changed":
                 lines.extend(format_changed(key, item, depth))
             case _:
-                raise ValueError(f"Unsupported status '{status}' in diff structure")
+                raise ValueError(
+                    f"Unsupported status '{status}' in diff structure"
+                )
 
     indent = '    ' * (depth - 1)
     return "{\n" + "\n".join(lines) + f"\n{indent}}}"

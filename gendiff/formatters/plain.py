@@ -35,12 +35,15 @@ def build_plain(diff, path=''):
                 old_value = format_value_plain(item['old_value'])
                 new_value = format_value_plain(item['new_value'])
                 result.append(
-                    f"Property '{full_path}' was updated. From {old_value} to {new_value}"
+                    f"Property '{full_path}' was updated. "
+                    f"From {old_value} to {new_value}"
                 )
             case "unchanged":
                 continue
             case _:
-                raise ValueError(f"Unsupported status '{status}' in diff structure")
+                raise ValueError(
+                    f"Unsupported status '{status}' in diff structure"
+                )
     return result
 
 
