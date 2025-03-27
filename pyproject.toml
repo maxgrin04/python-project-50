@@ -1,6 +1,6 @@
 [project]
 name = "hexlet-code"
-version = "0.2.9"
+version = "0.3.0"
 description = ""
 authors = [{name = "Максим Гринь", email = "mgrin98@gmail.com"}]
 readme = "README.md"
