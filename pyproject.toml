@@ -1,6 +1,6 @@
 [project]
 name = "hexlet-code"
-version = "0.3.7"
+version = "0.3.8"
 description = "«Вычислитель отличий» — программа, которая определяет разницу между двумя структурами данных."
 authors = [{name = "Максим Гринь", email = "mgrin98@gmail.com"}]
 readme = "README.md"
